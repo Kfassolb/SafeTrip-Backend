@@ -23,4 +23,14 @@ public class DestinoServiceImpl implements IDestinoService {
     public List<Destino> list() {
         return dR.findAll();
     }
+
+    @Override
+    public void delete(int idDestino) {
+        dR.deleteById(idDestino);
+    }
+
+    @Override
+    public List<Destino> search(String nameDestino) {
+        return dR.buscarDestino(nameDestino);
+    }
 }

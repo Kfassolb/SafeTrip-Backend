@@ -1,5 +1,6 @@
 package com.example.safetripbackend.serviceimpls;
 
+import com.example.safetripbackend.entities.Destino;
 import com.example.safetripbackend.entities.Servicio;
 import com.example.safetripbackend.repositories.IServicioRepository;
 import com.example.safetripbackend.serviceinterfaces.IServicioService;
@@ -19,5 +20,15 @@ public class ServicioServiceImpl implements IServicioService {
     @Override
     public List<Servicio> list() {
         return sR.findAll();
+    }
+
+    @Override
+    public void delete(int idServicio) {
+        sR.deleteById(idServicio);
+    }
+
+    @Override
+    public List<Servicio> search(String tipoServicio) {
+        return sR.buscarServicio(tipoServicio);
     }
 }

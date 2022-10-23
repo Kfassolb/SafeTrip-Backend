@@ -12,12 +12,29 @@ import java.util.List;
 public class GrupoController {
     @Autowired
     private IGrupoService gService;
+
     @PostMapping
-    public void registrar(@RequestBody Grupo g){
+    public void registrar(@RequestBody Grupo g) {
         gService.insert(g);
     }
+
     @GetMapping
-    public List<Grupo> listar(){
+    public List<Grupo> listar() {
         return gService.list();
+    }
+
+    @DeleteMapping("/{id}")
+    public void eliminar(@PathVariable("id") Integer id) {
+        gService.delete(id);
+    }
+
+    @PutMapping
+    public void modificar(@RequestBody Grupo g) {
+        gService.insert(g);
+    }
+
+    @PostMapping("/buscar")
+    List<Grupo> buscar(@RequestBody Grupo g) {
+        return gService.search(g.getNombreGrupo());
     }
 }

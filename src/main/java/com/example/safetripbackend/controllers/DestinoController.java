@@ -12,12 +12,29 @@ import java.util.List;
 public class DestinoController {
     @Autowired
     private IDestinoService dService;
+
     @PostMapping
-    public void registrar(@RequestBody Destino d){
-    dService.insert(d);
+    public void registrar(@RequestBody Destino d) {
+        dService.insert(d);
     }
+
     @GetMapping
-    public List<Destino> listar(){
+    public List<Destino> listar() {
         return dService.list();
+    }
+
+    @DeleteMapping("/{id}")
+    public void eliminar(@PathVariable("id") Integer id) {
+        dService.delete(id);
+    }
+
+    @PutMapping
+    public void modificar(@RequestBody Destino d) {
+        dService.insert(d);
+    }
+
+    @PostMapping("/buscar")
+    List<Destino> buscar(@RequestBody Destino d) {
+        return dService.search(d.getNameDestino());
     }
 }

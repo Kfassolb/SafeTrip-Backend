@@ -22,4 +22,14 @@ public class GrupoServiceImpl implements IGrupoService {
     public List<Grupo> list() {
         return gR.findAll();
     }
+
+    @Override
+    public void delete(int idGrupo) {
+        gR.deleteById(idGrupo);
+    }
+
+    @Override
+    public List<Grupo> search(String nombreGrupo) {
+        return gR.buscarGrupo(nombreGrupo);
+    }
 }

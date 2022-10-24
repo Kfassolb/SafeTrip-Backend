@@ -13,12 +13,12 @@ public class DestinoController {
     @Autowired
     private IDestinoService dService;
 
-    @PostMapping
+    @PostMapping("new")
     public void registrar(@RequestBody Destino d) {
         dService.insert(d);
     }
 
-    @GetMapping
+    @GetMapping("/list")
     public List<Destino> listar() {
         return dService.list();
     }

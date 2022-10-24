@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/servicios")
+@RequestMapping("/servicio")
 public class ServicioController {
     @Autowired
     private IServicioService svService;
